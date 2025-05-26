@@ -1,7 +1,7 @@
-import FetchDataSteps from "@/components/tutorial/fetch-data-steps";
 import { createClient } from "@/utils/supabase/server";
-import { InfoIcon } from "lucide-react";
 import { redirect } from "next/navigation";
+import { signOutAction } from "../actions";
+import Link from "next/link";
 
 export default async function ProtectedPage() {
   const supabase = await createClient();
@@ -15,24 +15,33 @@ export default async function ProtectedPage() {
   }
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-12">
-      <div className="w-full">
-        <div className="bg-accent text-sm p-3 px-5 rounded-md text-foreground flex gap-3 items-center">
-          <InfoIcon size="16" strokeWidth={2} />
-          This is a protected page that you can only see as an authenticated
-          user
+    <>
+      <main className="flex flex-col mx-auto justify-center items-center min-h-screen">
+        <div className="flex flex-col justify-center items-center">
+          <div className="flex-col flex items-center">
+            <span className="text-2xl font-light">
+              Ey, Hola <span className="font-bold">{user.user_metadata.username}</span>!
+            </span>
+            <span className="text-sm font-light">Bienvenido!</span>
+          </div>
+
+          <form action={signOutAction} className="mt-7">
+            <button
+              type="submit"
+              className="text-neutral-800 border px-3 py-1 rounded-lg border-neutral-600 hover:bg-slate-50"
+            >
+              Cerrar sesión
+            </button>
+          </form>
+          <Link href="/protected/reset-password" className="text-sm hover:underline font-light mt-1">
+            Restablecer contraseña
+          </Link>
+
+
+
         </div>
-      </div>
-      <div className="flex flex-col gap-2 items-start">
-        <h2 className="font-bold text-2xl mb-4">Your user details</h2>
-        <pre className="text-xs font-mono p-3 rounded border max-h-32 overflow-auto">
-          {JSON.stringify(user, null, 2)}
-        </pre>
-      </div>
-      <div>
-        <h2 className="font-bold text-2xl mb-4">Next steps</h2>
-        <FetchDataSteps />
-      </div>
-    </div>
+      </main>
+
+    </>
   );
 }
