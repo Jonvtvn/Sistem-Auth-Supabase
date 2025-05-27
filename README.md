@@ -20,18 +20,29 @@ Este proyecto implementa un sistema de autenticación completo utilizando **Next
 - Middleware (Next.js)
 - Server Actions (`"use server"`)
 
-## ⚙️ Configuración
+## 🛠️ Configuración Inicial
 
-1. Clona el repositorio:
+### 1. Crear cuenta y proyecto en Supabase
+
+Si no tienes una cuenta:
+
+1. Ve a [https://supabase.com/](https://supabase.com/) y crea una cuenta gratuita.
+2. Crea una **organización** (puedes usar tu nombre o el de tu proyecto).
+3. Dentro de la organización, crea un nuevo **proyecto**.
+4. Una vez creado, ve a la pestaña **"Settings > API"** y copia:
+   - `Project URL`
+   - `Anon public key`
+
+### 2. Clonar el repositorio
 
 ```bash
 git clone https://github.com/Jonvtvn/Sistem-Auth-Supabase
 ```
 ```bash
-cd tu-repo
+cd Sistem-Auth-Supabase
 ```
 
-2. Instala las dependencias:
+### 3. Instala las dependencias:
 
 ```bash
 npm install
@@ -40,14 +51,14 @@ yarn install
 ```
 
 
-3. Crea un archivo .env.local con tus claves de Supabase:
+### 4. Crea un archivo .env.local con tus claves de Supabase:
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://xyzcompany.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 ```
 
 
-4. Ejecuta el proyecto en modo desarrollo:
+### 5. Ejecuta el proyecto en modo desarrollo:
 
 ```bash
 npm run dev
