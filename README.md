@@ -69,3 +69,9 @@ npm run dev
 A continuación se muestran algunas vistas del diseño de la página:
 
 ![Vista 1](/Untitled.png)
+![Vista 2](/Untitled2.png)
+![Vista 3](/Untitled3.png)
+![Vista 4](/Untitled4.png)
+![Vista 5](/Untitled5.png)
+![Vista 6](/Untitled6.png)
+
